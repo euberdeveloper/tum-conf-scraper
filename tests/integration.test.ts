@@ -7,7 +7,8 @@ const assetsPath = path.join(__dirname, 'assets');
 const scraperOptions: ScrapingOptions = {
     duration: 2000,
     delayAfterVideoStarted: 0,
-    delayAfterVideoFinished: 0
+    delayAfterVideoFinished: 0,
+    fullScreen: true
 };
 const url =
     'https://tum-conf.zoom.us/rec/share/f5l-Ci_eFf8XXrfQ-o6uaidWQgBB6FoNG5hwrfIy_CNXbUwTM42ZxTq8jmlALs9E.QX_fNAGARSSbtTcv';
@@ -31,22 +32,6 @@ describe('Integration tests', () => {
         await scraper.close();
 
         expect(fs.existsSync(destination)).toBe(true);
-    });
-
-    it(`Test multiple subsequent video download`, async () => {
-        const destination1 = path.join(assetsPath, 'multiple-subsequent-video-1.webm');
-        const destination2 = path.join(assetsPath, 'multiple-subsequent-video-2.webm');
-
-        const scraper = new TumConfVideoScraper(passcode, {
-            debug: true
-        });
-        await scraper.launch();
-        await scraper.scrape(url, destination1, scraperOptions);
-        await scraper.scrape(url, destination2, scraperOptions);
-        await scraper.close();
-
-        expect(fs.existsSync(destination1)).toBe(true);
-        expect(fs.existsSync(destination2)).toBe(true);
     });
 
     it(`Test multiple parallel video download`, async () => {

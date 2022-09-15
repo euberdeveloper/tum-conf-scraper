@@ -10,6 +10,6 @@ const config: Config.InitialOptions = {
             tsconfig: './source/tsconfig.json'
         }
     },
-    testTimeout: 30_000
+    testTimeout: 60_000
 };
 export default config;
