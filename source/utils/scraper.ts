@@ -22,7 +22,7 @@ export class TumConfVideoScraper extends VideoScraperCore {
         return '.vjs-fullscreen-toggle-control-button';
     }
     protected getPlayButtonSelector(): string {
-        return '.vjs-big-play-button';
+        return '.vjs-play-control';
     }
     protected getVideoDurationSelector(): string {
         return '.vjs-remaining-time-display';
