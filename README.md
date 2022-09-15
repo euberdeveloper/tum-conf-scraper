@@ -29,13 +29,13 @@ const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function main() {
     // Create an instance of the scraper
-    const scraper = new TumConfVideoScraper({
+    const scraper = new TumConfVideoScraper('mypasscode', {
         debug: true
     });
     // Launch the Chrome browser
     await scraper.launch();
     // Scrape and save the video
-    await scraper.scrape('mypasscode', 'https://tum-conf.zoom.us/rec/share/myvideo', './saved.webm');
+    await scraper.scrape('https://tum-conf.zoom.us/rec/share/myvideo', './saved.webm');
     // Close the browser
     await scraper.close();
 }
@@ -49,15 +49,15 @@ const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function main() {
     // Create an instance of the scraper
-    const scraper = new TumConfVideoScraper({
+    const scraper = new TumConfVideoScraper('mypasscode', {
         debug: true
     });
     // Launch the Chrome browser
     await scraper.launch();
     // Scrape and save the first video
-    await scraper.scrape('mypasscode', 'https://tum-conf.zoom.us/rec/share/myvideo', './saved.webm');
+    await scraper.scrape('https://tum-conf.zoom.us/rec/share/myvideo', './saved.webm');
     // Scrape and save the second video
-    await scraper.scrape('mypasscode', 'https://tum-conf.zoom.us/rec/share/myvideo-bis', './saved_bis.webm');
+    await scraper.scrape('https://tum-conf.zoom.us/rec/share/myvideo-bis', './saved_bis.webm');
     // Close the browser
     await scraper.close();
 }
@@ -71,13 +71,13 @@ const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function scrape(dest, link) {
     // Create an instance of the scraper
-    const scraper = new TumConfVideoScraper({
+    const scraper = new TumConfVideoScraper('mypasscode', {
         debug: true
     });
     // Launch the Chrome browser
     await scraper.launch();
     // Scrape and save the video
-    await scraper.scrape('mypasscode', link, dest);
+    await scraper.scrape(link, dest);
     // Close the browser
     await scraper.close();
 }
@@ -99,7 +99,7 @@ const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function main() {
     // Browser options
-    const scraper = new TumConfVideoScraper({
+    const scraper = new TumConfVideoScraper('mypasscode', {
         debug: true,
         debugScope: 'This will be written as scope of the euberlog debug',
         windowSize: {
@@ -111,8 +111,8 @@ async function main() {
     await scraper.launch();
 
     // Scraping options
-    await scraper.scrape('mypasscode', 'https://tum-conf.zoom.us/rec/share/myvideo', './saved.webm', { duration: 1000 });
-    await scraper.scrape('mypasscode', 'https://tum-conf.zoom.us/rec/share/myvideo-bis', './saved_bis.webm', { 
+    await scraper.scrape('https://tum-conf.zoom.us/rec/share/myvideo', './saved.webm', { duration: 1000 });
+    await scraper.scrape('https://tum-conf.zoom.us/rec/share/myvideo-bis', './saved_bis.webm', { 
         audio: false,
         delayAfterVideoStarted: 3000,
         delayAfterVideoFinished: 2000 
