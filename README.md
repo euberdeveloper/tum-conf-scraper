@@ -25,11 +25,11 @@ This module is written because videos hosted on [Tum Conf](tum-conf.zoom.us) are
 To scrape a video available at "https://tum-conf.zoom.us/rec/share/myvideo" and save it to "./saved.webm":
 
 ```javascript
-const { TumConfScraper } = require('tum-conf-scraper');
+const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function main() {
     // Create an instance of the scraper
-    const scraper = new TumConfScraper({
+    const scraper = new TumConfVideoScraper({
         debug: true
     });
     // Launch the Chrome browser
@@ -45,11 +45,11 @@ main();
 To scrape and download more than one video:
 
 ```javascript
-const { TumConfScraper } = require('tum-conf-scraper');
+const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function main() {
     // Create an instance of the scraper
-    const scraper = new TumConfScraper({
+    const scraper = new TumConfVideoScraper({
         debug: true
     });
     // Launch the Chrome browser
@@ -67,11 +67,11 @@ main();
 To scrape and download in parallel more than one video:
 
 ```javascript
-const { TumConfScraper } = require('tum-conf-scraper');
+const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function scrape(dest, link) {
     // Create an instance of the scraper
-    const scraper = new TumConfScraper({
+    const scraper = new TumConfVideoScraper({
         debug: true
     });
     // Launch the Chrome browser
@@ -95,11 +95,11 @@ main();
 With custom options:
 
 ```javascript
-const { TumConfScraper } = require('tum-conf-scraper');
+const { TumConfVideoScraper } = require('tum-conf-scraper');
 
 async function main() {
     // Browser options
-    const scraper = new TumConfScraper({
+    const scraper = new TumConfVideoScraper({
         debug: true,
         debugScope: 'This will be written as scope of the euberlog debug',
         windowSize: {
@@ -131,13 +131,13 @@ The documentation site is: [tum-conf-scraper documentation](https://tum-conf-scr
 
 The documentation for development site is: [tum-conf-scraper dev documentation](https://tum-conf-scraper-dev.euber.dev)
 
-### TumConfScraper
+### TumConfVideoScraper
 
-The TumConfScraper class, that scrapes a video from a "BBB WebKonferenze" and saves it to a file.
+The TumConfVideoScraper class, that scrapes a video from a "BBB WebKonferenze" and saves it to a file.
 
 **Syntax:**
 
-`const scraper = new TumConfScraper(passcode, options);`
+`const scraper = new TumConfVideoScraper(passcode, options);`
 
 **Parameters:**
 
@@ -153,7 +153,7 @@ The TumConfScraper class, that scrapes a video from a "BBB WebKonferenze" and sa
 
 ### BrowserOptions
 
-The options given to the TumConfScraper constructor, see [video-scraper-core](https://github.com/euberdeveloper/video-scraper-core#browseroptions) for more information.
+The options given to the TumConfVideoScraper constructor, see [video-scraper-core](https://github.com/euberdeveloper/video-scraper-core#browseroptions) for more information.
 
 ### ScrapingOptions
 
